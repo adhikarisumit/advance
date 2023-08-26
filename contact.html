@@ -1,78 +1,68 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Contact</title>
-    <style>
-        /* Your CSS styling here */
-    </style>
+	<title>contact</title>
+	<style>
+	    h1{
+	    	padding: 10px;
+	    	background-color: green;
+	    	color: white;
+	    	text-align: center;
+	    } 
+	    footer{
+	    	text-align: center;
+	    }
+					a{
+		   display: inline;
+	    	padding: 2px;
+	        background-color: green;	
+	    	color: white;
+						}
+	</style>
 </head>
 <body>
-    <h1>Welcome to my portfolio</h1>
-    <a href="index.html">Home</a>
-    <a href="intrest.html">Intrest</a>
-    <a href="gallery.html">Work gallery</a>
-    <a href="contact.html">Contact me</a>
+<h1> Welcome to my portfolio</h1>
+<a href="index.html">Home</a>
+<a href="intrest.html">Intrest</a>
+<a href="gallery.html">Work gallery</a>
+<a href="contact.html">contact me</a>
 
-    <h3>Contact me</h3>
-    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-        <fieldset>
-            <legend>Please enter your details</legend>
-            <label>Full name</label>
-            <input type="text" name="fullname" placeholder="Enter full name"><br>
-            <label>Phone number</label>
-            <input type="number" name="phone"><br>
-            <label>Gender</label>
-            <input type="radio" name="gender" value="Male">Male
-            <input type="radio" name="gender" value="Female">Female
-            <input type="radio" name="gender" value="Other">Other
-            <br>
-            <label>Choose country:</label>
-            <select name="country">
-                <option>Nepal</option>
-                <option>India</option>
-                <option>China</option>
-                <option>Japan</option>
-            </select>
-            <br>
-            <label>Your interests (You can choose many items)</label>
-            <input type="checkbox" name="interest[]" value="Playing">Playing
-            <input type="checkbox" name="interest[]" value="Dancing">Dancing
-            <input type="checkbox" name="interest[]" value="Acting">Acting
-            <br>
-            <label>Message:</label>
-            <textarea name="message"></textarea>
-            <br>
-            <input type="submit" name="submit" value="Submit">
-        </fieldset>
-    </form>
-
-    <?php
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $name = $_POST["fullname"];
-        $phone = $_POST["phone"];
-        $gender = $_POST["gender"];
-        $country = $_POST["country"];
-        $interests = implode(", ", $_POST["interest"]); // Combine multiple interests into a single string
-        $message = $_POST["message"];
-
-        $to = "sumitadhikari2341@gmail.com"; // Change this to your email address
-        $subject = "New Form Submission";
-        $headers = "From: webmaster@example.com"; // Replace with an appropriate sender email
-
-        $messageBody = "Name: $name\n";
-        $messageBody .= "Phone: $phone\n";
-        $messageBody .= "Gender: $gender\n";
-        $messageBody .= "Country: $country\n";
-        $messageBody .= "Interests: $interests\n";
-        $messageBody .= "Message:\n$message";
-
-        // Send email
-        mail($to, $subject, $messageBody, $headers);
-
-        // Display a thank you message
-        echo "<p>Thank you for your submission!</p>";
-    }
-    ?>
-    <h3> if form is not working you can send your details and file in sumitadhikari2341@gmail.com</h3>
+<h3>Contact me</h3>
+<form>
+	<fieldset>
+		<legend>please enter your details</legend>
+	<label>Full name</label>
+	<input type="text" name="fullname"placeholder="Enter full name"><br>
+	<label>Phone number</label>
+    <input type="number" name="phone"><br>
+    <label>Gender</label>
+    	
+    <input type="radio" name="gender">Male
+    <input type="radio" name="gender">Female
+    <input type="radio" name="gender">Other
+    <br>
+     <label>Choose country:</label>
+    <select>
+    	<option>Nepal</option>
+    	<option>India</option>
+    	<option>China</option>
+        <option>Japan</option>
+    </select>
+    <br>
+    <label>Your intrest[You can choose many item]</label>
+    <input type="checkbox" name="playing">Playing
+    <input type="checkbox" name="dance">Dancing
+    <input type="checkbox" name="act">Acting
+    <br>
+    <label>Message:</label>
+    <textarea>
+    	
+    </textarea>
+    <input type="submit" name="submit">
+    <a href="mailto:sumitadhikari2341@gmail.com" target="_blank">
+    </fieldset>
+    
+    
+</form>
 </body>
 </html>
