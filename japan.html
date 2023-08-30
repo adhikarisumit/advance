@@ -23,7 +23,7 @@
 	    	background-color: green;
 	    	color: white;
 	    	text-align: left;
-	    	width: 25cm;
+	    	width: 33cm;
 	    }
 	    a{
 		   display: inline;
@@ -42,6 +42,9 @@
 	    }
 
 	</style>
+	<input type="text" id="searchInput" placeholder="Search...">
+<button id="searchButton">Search</button>
+
 </head>
 <body>
 	
@@ -81,7 +84,8 @@
 <video height="200" width="300" controls>
 	<source src="video/bc.mp4" type="video/mp4">
 </video>
-<h2>कसैले पहिलै किनेको घर वा भाडामा लिएको रुममा बस्ने हरु बाहेक जापान मा आफैले आफ्नो नाममा रुम लिनु पर्दा के गर्नु पर्छ? ।</h2>
+<h4>Content</h4>
+<h2>कसैले पहिलै किनेको घर वा भाडामा लिएको रुममा बस्ने हरु बाहेक जापान मा आफैले आफ्नो नाममा रुम लिनु पर्दा के गर्नु पर्छ?</h2>
 <ol> <h5> मैले आफुले रुम लिदा वा रुम छोड्दा पाएको जानकारी तपाई हरु लाई सजिलो भाषामा जानकारी गराउने कोशिस गर्दैछु यहा हरुले कोही त्रुटी भएमा अवस्य कम्मेन्ट गर्दिनु हुनेछ भन्ने आसा पनी लिएको छु । जुन कुरा नया र रुम लिने सोचमा हुनेहरुको निम्ती काम लाग्न सक्दछ । 
 जापान मा घर किन्न को लागी यहिको नागरिक भएको हुनु पर्दछ भनौ विदेसीको हकमा यहाको PR लिएको हुनु पर्दछ वा real state को लाईसेन्स प्राप्त गरेको हुनु पर्दछ र मात्र घर किन्ने वा रुम भाडामा लगाउन पाईनेछ ! जो कोही ले घर किनेर रुम भाडामा दिन भने पाईने छैन । 
 (स्टुडेन्ट हरुले रुम लिन चाहेको खन्डमा कम्ती मा पनी २ वर्ष को लागी सम्झौता गरिएको हुन्छ र त्यस बिचमा विभिन्न सर्त हरु को पालना गर्नु पर्दछ ) 
@@ -121,8 +125,28 @@
     </ol>
 </ul>
 </li>
-
 <h6>Rijal Ramesh</h6>
 </h5>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const searchButton = document.getElementById("searchButton");
+        searchButton.addEventListener("click", performSearch);
+    });
+
+    function performSearch() {
+        const searchInput = document.getElementById("searchInput").value.toLowerCase();
+        const contentDivs = document.querySelectorAll("h4, p, li"); // Adjust this selector based on your content structure
+
+        contentDivs.forEach(div => {
+            const contentText = div.textContent.toLowerCase();
+            if (contentText.includes(searchInput)) {
+                div.style.display = "block";
+            } else {
+                div.style.display = "none";
+            }
+        });
+    }
+</script>
+
 </body>
 </html>
